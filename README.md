@@ -19,6 +19,17 @@ they are nearby, and the host relays messages between everyone connected.
 History is stored on every device, and people who join late receive the
 messages they missed.
 
+## Download
+
+Prebuilt Android APKs are on the
+[releases page](https://github.com/teef22/blue-room/releases). The release APK
+uses the standard Android debug key, so it sideloads normally but is **not**
+Play Store signed.
+
+There is no prebuilt iOS app: iOS builds require macOS and Xcode. The
+`iOS unsigned build` GitHub Actions workflow can produce an unsigned IPA, which
+only installs through sideloading tools such as AltStore or Sideloadly.
+
 ## What works
 
 - Chats list with unread counts, live/offline/ended status, swipe to delete.

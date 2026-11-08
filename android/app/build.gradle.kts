@@ -5,7 +5,7 @@ plugins {
 }
 
 android {
-    namespace = "com.example.blue_room"
+    namespace = "io.github.teef22.blueroom"
     compileSdk = flutter.compileSdkVersion
     ndkVersion = flutter.ndkVersion
 
@@ -15,8 +15,7 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
-        applicationId = "com.example.blue_room"
+        applicationId = "io.github.teef22.blueroom"
         // You can update the following values to match your application needs.
         // For more information, see: https://flutter.dev/to/review-gradle-config.
         minSdk = 24
@@ -31,8 +30,10 @@ android {
 
     buildTypes {
         release {
-            // TODO: Add your own signing config for the release build.
-            // Signing with the debug keys for now, so `flutter run --release` works.
+            // This project is distributed as a sideloadable APK from GitHub
+            // Releases. It uses the standard Android debug key so the build is
+            // installable without a private keystore; it is not Play Store
+            // signing.
             signingConfig = signingConfigs.getByName("debug")
         }
     }

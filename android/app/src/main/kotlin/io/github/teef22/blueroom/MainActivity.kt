@@ -1,4 +1,4 @@
-package com.example.blue_room
+package io.github.teef22.blueroom
 
 import io.flutter.embedding.android.FlutterActivity
 

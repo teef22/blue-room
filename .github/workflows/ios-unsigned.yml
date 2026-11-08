@@ -1,0 +1,48 @@
+name: iOS unsigned build
+
+# Manual only: the artifact is an unsigned IPA for sideloading, not an
+# App Store build. See the README.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  ios:
+    runs-on: macos-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.47.9'
+          channel: stable
+          cache: true
+
+      - name: Flutter version
+        run: flutter --version
+
+      - name: Resolve packages
+        run: flutter pub get
+
+      - name: Build iOS without code signing
+        run: flutter build ios --release --no-codesign
+
+      - name: Package unsigned IPA
+        run: |
+          set -euo pipefail
+          rm -rf build/unsigned
+          mkdir -p build/unsigned/Payload
+          cp -R build/ios/iphoneos/Runner.app build/unsigned/Payload/
+          cd build/unsigned
+          zip -qry ../BlueRoom-unsigned.ipa Payload
+          ls -lh ../BlueRoom-unsigned.ipa
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: blue-room-ios-unsigned
+          path: build/BlueRoom-unsigned.ipa
+          if-no-files-found: error
+          retention-days: 30
