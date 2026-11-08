@@ -1,0 +1,34 @@
+name: blue_room
+description: "Local, encrypted, proximity chat over Bluetooth Low Energy."
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  collection: ^1.19.1
+  crypto: ^3.0.7
+  cryptography: ^2.9.0
+  cupertino_icons: ^1.0.8
+  flutter_secure_storage: ^11.2.0
+  intl: ^0.20.3
+  path: ^1.9.1
+  path_provider: ^2.1.6
+  provider: ^6.1.5+1
+  shared_preferences: ^2.5.6
+  sqflite: ^2.4.5
+  sqflite_common_ffi: ^2.4.5
+  uuid: ^4.6.0
+  bluetooth_low_energy: ^6.2.1
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  fake_async: ^1.3.3
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
